@@ -10,40 +10,29 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-          ensure_installed = {"lua_ls", "bashls" ,"matlab_ls", "ast_grep", "groovyls"}
+        ensure_installed = { "lua_ls", "matlab_ls", "ruff_lsp", "bashls" },
       })
-    end
+    end,
   },
   {
     "neovim/nvim-lspconfig",
+    version = "v1.0.0",
     lazy = false,
     config = function()
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       local lspconfig = require("lspconfig")
-      lspconfig.ts_ls.setup({
-        capabilities = capabilities
-      })
-      lspconfig.solargraph.setup({
-        capabilities = capabilities
-      })
-      lspconfig.html.setup({
-        capabilities = capabilities
-      })
       lspconfig.lua_ls.setup({
-        capabilities = capabilities
-      })
-      lspconfig.bashls.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
       })
       lspconfig.matlab_ls.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
       })
-      lspconfig.ast_grep.setup({
-        capabilities = capabilities
+      lspconfig.ruff_lsp.setup({
+        capabilities = capabilities,
       })
-      lspconfig.groovyls.setup({
-        capabilities = capabilities
+      lspconfig.bashls.setup({
+        capabilities = capabilities,
       })
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
