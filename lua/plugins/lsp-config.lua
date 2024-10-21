@@ -10,7 +10,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-          ensure_installed = {"lua_ls", "bashls" ,"matlab_ls", "ast_grep", "groovyls"}
+          ensure_installed = {"lua_ls", "bashls" , "ast_grep" }
       })
     end
   },
@@ -21,28 +21,13 @@ return {
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
       local lspconfig = require("lspconfig")
-      lspconfig.ts_ls.setup({
-        capabilities = capabilities
-      })
-      lspconfig.solargraph.setup({
-        capabilities = capabilities
-      })
-      lspconfig.html.setup({
-        capabilities = capabilities
-      })
       lspconfig.lua_ls.setup({
         capabilities = capabilities
       })
       lspconfig.bashls.setup({
         capabilities = capabilities
       })
-      lspconfig.matlab_ls.setup({
-        capabilities = capabilities
-      })
       lspconfig.ast_grep.setup({
-        capabilities = capabilities
-      })
-      lspconfig.groovyls.setup({
         capabilities = capabilities
       })
 
